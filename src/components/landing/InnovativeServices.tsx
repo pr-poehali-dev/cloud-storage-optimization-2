@@ -1,88 +1,72 @@
 import { motion } from "framer-motion"
-import { Crown, Star, Gem, Heart, CheckCircle, ArrowRight } from "lucide-react"
-import AnimatedButton from "./AnimatedButton"
+import { Target, Megaphone, Camera, Trophy, Users, TrendingUp } from "lucide-react"
 
-const packages = [
+const audience = [
+  { label: "Возраст", value: "18–50 лет", icon: "👤" },
+  { label: "Пол", value: "Преимущественно женщины", icon: "💄" },
+  { label: "Статус", value: "Активная городская аудитория", icon: "🏙️" },
+  { label: "Интересы", value: "Красота, мода, lifestyle", icon: "✨" },
+  { label: "Доход", value: "Средний и выше среднего", icon: "💰" },
+  { label: "Платформы", value: "Instagram, ВКонтакте, Telegram", icon: "📱" },
+]
+
+const benefits = [
   {
-    id: "title",
-    title: "Титульный спонсор",
-    price: "от 300 000 ₽",
-    color: "from-yellow-500/20 to-amber-600/10",
-    borderColor: "border-yellow-500/30",
-    accentColor: "text-yellow-400",
-    icon: <Crown className="w-8 h-8" />,
-    badge: "Топ-позиция",
-    benefits: [
-      "Название бренда в названии конкурса",
-      "Логотип на всех материалах и сцене",
-      "Эксклюзивная рекламная зона в фойе",
-      "Выход представителя на сцену",
-      "Пакет VIP-билетов (10 шт.)",
-      "Упоминания во всех PR-материалах",
-      "Баннер на фасаде Огарев Арены",
-    ],
-    mockup: "title",
+    icon: <Target className="w-6 h-6" />,
+    title: "Прямой контакт с ЦА",
+    description: "Ваш бренд напрямую взаимодействует с активной аудиторией 18–50 лет в живом формате — без баннерной слепоты и фильтров.",
+    color: "text-pink-400",
+    bg: "bg-pink-500/10",
+    border: "border-pink-500/20",
   },
   {
-    id: "platinum",
-    title: "Платиновый спонсор",
-    price: "от 150 000 ₽",
-    color: "from-purple-500/20 to-purple-600/10",
-    borderColor: "border-purple-500/30",
-    accentColor: "text-purple-400",
-    icon: <Gem className="w-8 h-8" />,
-    badge: "Популярный",
-    benefits: [
-      "Логотип на сцене и экране",
-      "Рекламная стойка на мероприятии",
-      "Упоминание в ведении шоу",
-      "VIP-билеты (6 шт.)",
-      "Пост в официальных соцсетях",
-      "Логотип на форме команды",
-    ],
-    mockup: "platinum",
+    icon: <Megaphone className="w-6 h-6" />,
+    title: "PR и медиаприсутствие",
+    description: "Упоминания в региональных СМИ, анонсы в городских пабликах, публикации в соцсетях мероприятия с охватом 100K+.",
+    color: "text-purple-400",
+    bg: "bg-purple-500/10",
+    border: "border-purple-500/20",
   },
   {
-    id: "gold",
-    title: "Золотой спонсор",
-    price: "от 80 000 ₽",
-    color: "from-pink-500/20 to-rose-600/10",
-    borderColor: "border-pink-500/30",
-    accentColor: "text-pink-400",
-    icon: <Star className="w-8 h-8" />,
-    badge: "",
-    benefits: [
-      "Логотип в программке мероприятия",
-      "Размещение баннера в зале",
-      "VIP-билеты (4 шт.)",
-      "Упоминание на сайте конкурса",
-      "Story в соцсетях организаторов",
-    ],
-    mockup: "gold",
+    icon: <Camera className="w-6 h-6" />,
+    title: "Видеоконтент",
+    description: "Логотип и брендинг в профессиональном видео события, которое будет показано в эфире и накапливать просмотры в сети.",
+    color: "text-blue-400",
+    bg: "bg-blue-500/10",
+    border: "border-blue-500/20",
   },
   {
-    id: "info",
-    title: "Информационный партнёр",
-    price: "Бартер / от 30 000 ₽",
-    color: "from-blue-500/20 to-blue-600/10",
-    borderColor: "border-blue-500/30",
-    accentColor: "text-blue-400",
-    icon: <Heart className="w-8 h-8" />,
-    badge: "",
-    benefits: [
-      "Логотип на сайте и в соцсетях",
-      "Совместные публикации",
-      "2 приглашения на мероприятие",
-      "Обмен аудиторией",
-    ],
-    mockup: "info",
+    icon: <Trophy className="w-6 h-6" />,
+    title: "Статус и репутация",
+    description: "Ассоциация бренда с главным конкурсом красоты Мордовии — укрепляет доверие и создаёт позитивный имидж в регионе.",
+    color: "text-yellow-400",
+    bg: "bg-yellow-500/10",
+    border: "border-yellow-500/20",
+  },
+  {
+    icon: <Users className="w-6 h-6" />,
+    title: "Брендированные зоны",
+    description: "Промо-стойки, стенды и баннеры в фойе Огарев Арены — живое взаимодействие с 3 000+ гостями мероприятия.",
+    color: "text-green-400",
+    bg: "bg-green-500/10",
+    border: "border-green-500/20",
+  },
+  {
+    icon: <TrendingUp className="w-6 h-6" />,
+    title: "Долгосрочный эффект",
+    description: "Вирусный контент и фотоотчёты продолжают работать на ваш бренд ещё месяцы после события в социальных сетях.",
+    color: "text-orange-400",
+    bg: "bg-orange-500/10",
+    border: "border-orange-500/20",
   },
 ]
 
 export default function InnovativeServices() {
   return (
-    <section id="services" className="py-24 bg-black relative">
+    <section id="audience" className="py-24 bg-black relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Audience Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -90,145 +74,88 @@ export default function InnovativeServices() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">Спонсорские пакеты</h2>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-sm text-purple-400 font-medium mb-6"
+          >
+            Целевая аудитория
+          </motion.div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Кто придёт на событие
+          </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Выберите формат участия, который подходит именно вашему бренду — от информационного партнёрства до титульного спонсорства.
+            Активная городская аудитория с высокой покупательной способностью — именно те, кого хотят видеть ведущие бренды Мордовии.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8">
-          {/* Top row - Title and Platinum */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {packages.slice(0, 2).map((pkg, index) => (
-              <motion.div
-                key={pkg.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className={`bg-gradient-to-br ${pkg.color} border ${pkg.borderColor} rounded-2xl p-8 backdrop-blur-sm hover:border-opacity-60 transition-all duration-300 group relative overflow-hidden`}
-              >
-                {pkg.badge && (
-                  <div className="absolute top-4 right-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    {pkg.badge}
-                  </div>
-                )}
-
-                {/* Icon and Price */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className={`p-3 rounded-xl bg-gray-800/50 ${pkg.accentColor}`}>
-                    {pkg.icon}
-                  </div>
-                  <div className="text-right">
-                    <div className={`text-2xl font-bold ${pkg.accentColor}`}>{pkg.price}</div>
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-pink-400 transition-colors">
-                  {pkg.title}
-                </h3>
-
-                {/* Benefits */}
-                <ul className="space-y-3 mb-8">
-                  {pkg.benefits.map((benefit, i) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: i * 0.05 }}
-                      viewport={{ once: true }}
-                      className="flex items-start space-x-3"
-                    >
-                      <CheckCircle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${pkg.accentColor}`} />
-                      <span className="text-gray-300 text-sm">{benefit}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-
-                <a href="#contact">
-                  <AnimatedButton className="w-full bg-white text-black hover:bg-gray-100">
-                    <span className="flex items-center justify-center">
-                      Обсудить условия
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </span>
-                  </AnimatedButton>
-                </a>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Bottom row - Gold and Info */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {packages.slice(2, 4).map((pkg, index) => (
-              <motion.div
-                key={pkg.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className={`bg-gradient-to-br ${pkg.color} border ${pkg.borderColor} rounded-2xl p-8 backdrop-blur-sm hover:border-opacity-60 transition-all duration-300 group`}
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <div className={`p-3 rounded-xl bg-gray-800/50 ${pkg.accentColor}`}>
-                    {pkg.icon}
-                  </div>
-                  <div className="text-right">
-                    <div className={`text-xl font-bold ${pkg.accentColor}`}>{pkg.price}</div>
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-pink-400 transition-colors">
-                  {pkg.title}
-                </h3>
-
-                <ul className="space-y-3 mb-8">
-                  {pkg.benefits.map((benefit, i) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: i * 0.05 }}
-                      viewport={{ once: true }}
-                      className="flex items-start space-x-3"
-                    >
-                      <CheckCircle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${pkg.accentColor}`} />
-                      <span className="text-gray-300 text-sm">{benefit}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-
-                <a href="#contact">
-                  <AnimatedButton variant="outline" className="w-full border-gray-600 text-white hover:bg-gray-800">
-                    <span className="flex items-center justify-center">
-                      Обсудить условия
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </span>
-                  </AnimatedButton>
-                </a>
-              </motion.div>
-            ))}
-          </div>
+        {/* Audience Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-24">
+          {audience.map((item, index) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className="bg-gray-900/40 border border-gray-800 rounded-2xl p-5 text-center hover:border-pink-500/30 transition-all duration-300"
+            >
+              <div className="text-3xl mb-3">{item.icon}</div>
+              <div className="text-xs text-gray-500 mb-1">{item.label}</div>
+              <div className="text-sm font-semibold text-white leading-tight">{item.value}</div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Custom package note */}
+        {/* Benefits Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mt-12 text-center bg-gray-900/40 border border-gray-700/30 rounded-2xl p-8"
+          className="text-center mb-16"
         >
-          <p className="text-gray-300 text-lg mb-4">
-            Не нашли подходящий пакет? Мы готовы разработать индивидуальные условия под ваш бренд и бюджет.
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-sm text-yellow-400 font-medium mb-6"
+          >
+            Выгоды для спонсоров
+          </motion.div>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+            Что получает ваш бренд
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Реальные инструменты продвижения — от прямого контакта с аудиторией до вирусного медиаконтента.
           </p>
-          <a href="#contact">
-            <AnimatedButton className="bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700">
-              Получить индивидуальное предложение
-            </AnimatedButton>
-          </a>
         </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map((benefit, index) => (
+            <motion.div
+              key={benefit.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+              className={`${benefit.bg} border ${benefit.border} rounded-2xl p-6 hover:border-opacity-50 transition-all duration-300 group`}
+            >
+              <div className={`w-12 h-12 ${benefit.bg} border ${benefit.border} rounded-xl flex items-center justify-center mb-4 ${benefit.color}`}>
+                {benefit.icon}
+              </div>
+              <h3 className={`text-lg font-bold text-white mb-3 group-hover:${benefit.color} transition-colors`}>
+                {benefit.title}
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )

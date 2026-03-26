@@ -57,16 +57,16 @@ export default function Navbar() {
 
             <div className="hidden md:block">
               <div className="flex items-center space-x-8">
-                <a href="#services" className="text-sm text-gray-300 hover:text-pink-400 transition-colors">
-                  Пакеты
-                </a>
-                <a href="#artists" className="text-sm text-gray-300 hover:text-purple-400 transition-colors">
+                <a href="#about" className="text-sm text-gray-300 hover:text-pink-400 transition-colors">
                   О событии
                 </a>
-                <a href="#success-stories" className="text-sm text-gray-300 hover:text-rose-400 transition-colors">
+                <a href="#audience" className="text-sm text-gray-300 hover:text-purple-400 transition-colors">
                   Аудитория
                 </a>
-                <a href="#contact" className="text-sm text-gray-300 hover:text-pink-400 transition-colors">
+                <a href="#packages" className="text-sm text-gray-300 hover:text-yellow-400 transition-colors">
+                  Пакеты
+                </a>
+                <a href="#contact" className="text-sm text-gray-300 hover:text-green-400 transition-colors">
                   Контакты
                 </a>
               </div>
@@ -92,21 +92,21 @@ export default function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden border-t border-gray-700/50 bg-gray-900/80 backdrop-blur-md rounded-b-2xl">
             <div className="px-6 py-4 space-y-3">
-              <a href="#services" className="block text-gray-300 hover:text-blue-400">
-                Пакеты
-              </a>
-              <a href="#artists" className="block text-gray-300 hover:text-purple-400">
+              <a href="#about" className="block text-gray-300 hover:text-pink-400">
                 О событии
               </a>
-              <a href="#success-stories" className="block text-gray-300 hover:text-green-400">
+              <a href="#audience" className="block text-gray-300 hover:text-purple-400">
                 Аудитория
               </a>
-              <a href="#contact" className="block text-gray-300 hover:text-orange-400">
+              <a href="#packages" className="block text-gray-300 hover:text-yellow-400">
+                Пакеты
+              </a>
+              <a href="#contact" className="block text-gray-300 hover:text-green-400">
                 Контакты
               </a>
               <div className="pt-3 border-t border-gray-700">
-                <a href="#get-started" className="block">
-                  <AnimatedButton className="w-full bg-white text-black hover:bg-gray-100">Стать спонсором</AnimatedButton>
+                <a href="#packages" className="block">
+                  <AnimatedButton className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white border-0">Стать спонсором</AnimatedButton>
                 </a>
               </div>
             </div>

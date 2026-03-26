@@ -1,213 +1,192 @@
 import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Instagram, Twitter, Linkedin, Youtube, Mail, Phone, MapPin, ArrowRight } from "lucide-react"
+import { Instagram, Youtube, Mail, Phone, MapPin, ArrowRight, Send } from "lucide-react"
 import AnimatedButton from "./AnimatedButton"
 
 export default function AnimatedFooter() {
+  const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [isSubscribed, setIsSubscribed] = useState(false)
+  const [company, setCompany] = useState("")
+  const [sent, setSent] = useState(false)
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubscribed(true)
-    setTimeout(() => setIsSubscribed(false), 3000)
+    setSent(true)
+    setTimeout(() => setSent(false), 4000)
+    setName("")
     setEmail("")
+    setCompany("")
   }
 
   return (
     <footer id="contact" className="relative bg-black border-t border-gray-800/50">
-      {/* Newsletter Section */}
+
+      {/* CTA / Contact Section */}
       <div className="relative z-10 border-b border-gray-800/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">Хотите стать спонсором?</h3>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Оставьте email — мы вышлем полную презентацию пакетов и свяжемся для обсуждения условий.
-            </p>
-          </motion.div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-          <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            onSubmit={handleSubscribe}
-            className="max-w-md mx-auto"
-          >
-            <div className="flex gap-4">
-              <div className="flex-1 relative">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Ваш email"
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                  required
-                />
+            {/* Left: Text */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <div className="inline-flex items-center px-4 py-2 bg-pink-500/10 border border-pink-500/30 rounded-full text-sm text-pink-400 font-medium">
+                Заключение
               </div>
-              <AnimatedButton
-                type="submit"
-                className="bg-white text-black hover:bg-gray-100"
-              >
-                <ArrowRight className="h-5 w-5" />
-              </AnimatedButton>
-            </div>
-            {isSubscribed && (
-              <p className="text-green-400 text-center mt-4 animate-fade-in">Спасибо за подписку!</p>
-            )}
-          </motion.form>
-        </div>
-      </div>
+              <h3 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
+                Готовы стать частью
+                <span className="block bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                  главного события Саранска?
+                </span>
+              </h3>
+              <p className="text-gray-400 text-lg leading-relaxed">
+                Мы открыты к обсуждению индивидуальных условий сотрудничества. 
+                Свяжитесь с нами — и мы подберём оптимальный пакет под цели вашего бренда.
+              </p>
 
-      {/* Main Footer Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-          {/* Logo and Description */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-8 text-center lg:text-left"
-          >
-            <div className="group flex justify-center lg:justify-start">
-              <span className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent transition-transform duration-300 group-hover:scale-105">
-                Красавица города 2026
-              </span>
-            </div>
-            <p className="text-gray-400 text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-              Ежегодный конкурс красоты и таланта в сердце Мордовии. Огарев Арена, Саранск — главная площадка региона с аудиторией 5 000+ гостей и широким медиаосвещением.
-            </p>
+              <div className="space-y-4 pt-4">
+                <div className="flex items-center gap-3 text-gray-300">
+                  <div className="w-10 h-10 bg-pink-500/10 border border-pink-500/20 rounded-xl flex items-center justify-center">
+                    <Mail className="w-5 h-5 text-pink-400" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500 mb-0.5">Email</div>
+                    <span className="font-medium">sponsor@krasavica2026.ru</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 text-gray-300">
+                  <div className="w-10 h-10 bg-purple-500/10 border border-purple-500/20 rounded-xl flex items-center justify-center">
+                    <Phone className="w-5 h-5 text-purple-400" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500 mb-0.5">Телефон</div>
+                    <span className="font-medium">+7 (834) 2 XX-XX-XX</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 text-gray-300">
+                  <div className="w-10 h-10 bg-yellow-500/10 border border-yellow-500/20 rounded-xl flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-yellow-400" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500 mb-0.5">Место проведения</div>
+                    <span className="font-medium">Огарев Арена, Саранск</span>
+                  </div>
+                </div>
+              </div>
 
-            {/* Social Links */}
-            <div className="flex space-x-6 justify-center lg:justify-start">
-              {[
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Twitter, href: "#", label: "Twitter" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Youtube, href: "#", label: "YouTube" },
-              ].map(({ icon: Icon, href, label }, index) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <a href={href} className="group relative" aria-label={label}>
-                    <div className="w-12 h-12 bg-gray-900 border border-gray-800 rounded-lg flex items-center justify-center group-hover:bg-gray-800 group-hover:border-gray-700 transition-colors">
-                      <Icon className="h-5 w-5 text-gray-400 group-hover:text-white transition-colors" />
-                    </div>
+              <div className="flex gap-4 pt-2">
+                {[
+                  { icon: Instagram, href: "#", label: "Instagram", color: "hover:border-pink-500/50 hover:text-pink-400" },
+                  { icon: Youtube, href: "#", label: "YouTube", color: "hover:border-red-500/50 hover:text-red-400" },
+                  { icon: Send, href: "#", label: "Telegram", color: "hover:border-blue-500/50 hover:text-blue-400" },
+                ].map(({ icon: Icon, href, label, color }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className={`w-10 h-10 bg-gray-900 border border-gray-800 rounded-xl flex items-center justify-center text-gray-400 transition-all duration-200 ${color}`}
+                  >
+                    <Icon className="w-4 h-4" />
                   </a>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
-          {/* Links and Contact */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-center sm:text-left">
-            {/* Quick Links */}
+            {/* Right: Form */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
+              className="bg-gray-900/40 border border-gray-800 rounded-3xl p-8"
             >
-              <h4 className="text-lg font-semibold text-white mb-6">Пакеты</h4>
-              <ul className="space-y-4">
-                {[
-                  "Титульный спонсор",
-                  "Генеральный партнёр",
-                  "Медиапартнёр",
-                  "Спонсор номинации",
-                  "Партнёр категории",
-                  "Информационный партнёр",
-                ].map((link, index) => (
-                  <motion.li
-                    key={link}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+              <h4 className="text-xl font-bold text-white mb-6">Оставить заявку</h4>
+              {sent ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-8"
+                >
+                  <div className="text-5xl mb-4">✅</div>
+                  <p className="text-green-400 font-medium text-lg">Заявка отправлена!</p>
+                  <p className="text-gray-400 text-sm mt-2">Мы свяжемся с вами в течение 24 часов</p>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-sm text-gray-400 mb-2">Ваше имя</label>
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Иван Иванов"
+                      required
+                      className="w-full px-4 py-3 bg-gray-800/60 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm text-gray-400 mb-2">Компания</label>
+                    <input
+                      type="text"
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
+                      placeholder="Название компании"
+                      className="w-full px-4 py-3 bg-gray-800/60 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm text-gray-400 mb-2">Email</label>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="mail@company.ru"
+                      required
+                      className="w-full px-4 py-3 bg-gray-800/60 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 transition-colors"
+                    />
+                  </div>
+                  <AnimatedButton
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 border-0"
                   >
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center justify-center sm:justify-start group"
-                    >
-                      <span className="w-0 group-hover:w-2 h-0.5 bg-blue-500 transition-all duration-200 mr-0 group-hover:mr-2" />
-                      {link}
-                    </a>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg font-semibold text-white mb-6">Контакты</h4>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3 text-gray-400 justify-center sm:justify-start">
-                  <Mail className="h-5 w-5 text-blue-500" />
-                  <span>sponsor@krasavica2026.ru</span>
-                </div>
-                <div className="flex items-center space-x-3 text-gray-400 justify-center sm:justify-start">
-                  <Phone className="h-5 w-5 text-blue-500" />
-                  <span>+7 (834) 2 XX-XX-XX</span>
-                </div>
-                <div className="flex items-center space-x-3 text-gray-400 justify-center sm:justify-start">
-                  <MapPin className="h-5 w-5 text-blue-500" />
-                  <span>Саранск, Огарев Арена</span>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <a href="#get-started">
-                  <AnimatedButton className="w-full bg-white text-black hover:bg-gray-100">
-                    Стать спонсором
+                    <span className="flex items-center justify-center gap-2">
+                      Отправить заявку
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
                   </AnimatedButton>
-                </a>
-              </div>
+                  <p className="text-xs text-gray-500 text-center">
+                    Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+                  </p>
+                </form>
+              )}
             </motion.div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="border-t border-gray-800 pt-8"
-        >
-          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 text-center sm:text-left">
-            <p className="text-gray-500 text-sm">
-              © 2026 Красавица города. Все права защищены.
-            </p>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-500 hover:text-white transition-colors">
-                Политика конфиденциальности
-              </a>
-              <a href="#" className="text-gray-500 hover:text-white transition-colors">
-                Условия использования
-              </a>
-              <a href="#" className="text-gray-500 hover:text-white transition-colors">
-                Cookies
-              </a>
-            </div>
+      {/* Bottom Bar */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+          <div>
+            <span className="text-xl font-bold bg-gradient-to-r from-pink-400 via-purple-400 to-yellow-400 bg-clip-text text-transparent">
+              Красавица города 2026
+            </span>
+            <p className="text-gray-600 text-sm mt-1">© 2026 Все права защищены.</p>
           </div>
-        </motion.div>
+          <div className="flex gap-6 text-sm">
+            <a href="#" className="text-gray-500 hover:text-white transition-colors">
+              Политика конфиденциальности
+            </a>
+            <a href="#" className="text-gray-500 hover:text-white transition-colors">
+              Условия
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   )
