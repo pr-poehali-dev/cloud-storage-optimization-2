@@ -27,9 +27,9 @@ export default function AnimatedFooter() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">Будьте в курсе трендов</h3>
+            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">Хотите стать спонсором?</h3>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Получайте эксклюзивные инсайты, стратегии развития бренда и советы по росту каждую неделю.
+              Оставьте email — мы вышлем полную презентацию пакетов и свяжемся для обсуждения условий.
             </p>
           </motion.div>
 
@@ -79,12 +79,11 @@ export default function AnimatedFooter() {
           >
             <div className="group flex justify-center lg:justify-start">
               <span className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent transition-transform duration-300 group-hover:scale-105">
-                Pulse Digital
+                Красавица города 2026
               </span>
             </div>
             <p className="text-gray-400 text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-              Помогаем творческим профессионалам и предпринимателям создавать сильные бренды,
-              обеспечивающие реальный рост на конкурентном рынке.
+              Ежегодный конкурс красоты и таланта в сердце Мордовии. Огарев Арена, Саранск — главная площадка региона с аудиторией 5 000+ гостей и широким медиаосвещением.
             </p>
 
             {/* Social Links */}
@@ -121,15 +120,15 @@ export default function AnimatedFooter() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold text-white mb-6">Услуги</h4>
+              <h4 className="text-lg font-semibold text-white mb-6">Пакеты</h4>
               <ul className="space-y-4">
                 {[
-                  "Разработка бренда",
-                  "Цифровой маркетинг",
-                  "Создание контента",
-                  "SEO и аналитика",
-                  "Ведение соцсетей",
-                  "Performance-маркетинг",
+                  "Титульный спонсор",
+                  "Генеральный партнёр",
+                  "Медиапартнёр",
+                  "Спонсор номинации",
+                  "Партнёр категории",
+                  "Информационный партнёр",
                 ].map((link, index) => (
                   <motion.li
                     key={link}
@@ -161,22 +160,22 @@ export default function AnimatedFooter() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 text-gray-400 justify-center sm:justify-start">
                   <Mail className="h-5 w-5 text-blue-500" />
-                  <span>hello@pulsedigital.ru</span>
+                  <span>sponsor@krasavica2026.ru</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-400 justify-center sm:justify-start">
                   <Phone className="h-5 w-5 text-blue-500" />
-                  <span>+7 (495) 123-45-67</span>
+                  <span>+7 (834) 2 XX-XX-XX</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-400 justify-center sm:justify-start">
                   <MapPin className="h-5 w-5 text-blue-500" />
-                  <span>Москва, Россия</span>
+                  <span>Саранск, Огарев Арена</span>
                 </div>
               </div>
 
               <div className="mt-8">
                 <a href="#get-started">
                   <AnimatedButton className="w-full bg-white text-black hover:bg-gray-100">
-                    Начать проект
+                    Стать спонсором
                   </AnimatedButton>
                 </a>
               </div>
@@ -194,7 +193,7 @@ export default function AnimatedFooter() {
         >
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 text-center sm:text-left">
             <p className="text-gray-500 text-sm">
-              {new Date().getFullYear()} Pulse Digital. Все права защищены.
+              © 2026 Красавица города. Все права защищены.
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-500 hover:text-white transition-colors">

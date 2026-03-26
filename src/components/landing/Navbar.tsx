@@ -49,36 +49,33 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <a href="/" className="flex items-center space-x-3">
-                <span className="text-xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  Pulse Digital
+                <span className="text-xl font-bold bg-gradient-to-r from-pink-400 via-purple-400 to-rose-400 bg-clip-text text-transparent">
+                  Красавица города 2026
                 </span>
               </a>
             </div>
 
             <div className="hidden md:block">
               <div className="flex items-center space-x-8">
-                <a href="#services" className="text-sm text-gray-300 hover:text-blue-400 transition-colors">
-                  Услуги
+                <a href="#services" className="text-sm text-gray-300 hover:text-pink-400 transition-colors">
+                  Пакеты
                 </a>
                 <a href="#artists" className="text-sm text-gray-300 hover:text-purple-400 transition-colors">
-                  Клиенты
+                  О событии
                 </a>
-                <a href="#success-stories" className="text-sm text-gray-300 hover:text-green-400 transition-colors">
-                  Кейсы
+                <a href="#success-stories" className="text-sm text-gray-300 hover:text-rose-400 transition-colors">
+                  Аудитория
                 </a>
-                <a href="#contact" className="text-sm text-gray-300 hover:text-orange-400 transition-colors">
+                <a href="#contact" className="text-sm text-gray-300 hover:text-pink-400 transition-colors">
                   Контакты
                 </a>
               </div>
             </div>
 
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="ghost" className="text-sm text-gray-300 hover:text-white">
-                Войти
-              </Button>
               <a href="#get-started">
-                <AnimatedButton size="sm" className="bg-white text-black hover:bg-gray-100">
-                  Начать
+                <AnimatedButton size="sm" className="bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700">
+                  Стать спонсором
                 </AnimatedButton>
               </a>
             </div>
@@ -96,20 +93,20 @@ export default function Navbar() {
           <div className="md:hidden border-t border-gray-700/50 bg-gray-900/80 backdrop-blur-md rounded-b-2xl">
             <div className="px-6 py-4 space-y-3">
               <a href="#services" className="block text-gray-300 hover:text-blue-400">
-                Услуги
+                Пакеты
               </a>
               <a href="#artists" className="block text-gray-300 hover:text-purple-400">
-                Клиенты
+                О событии
               </a>
               <a href="#success-stories" className="block text-gray-300 hover:text-green-400">
-                Кейсы
+                Аудитория
               </a>
               <a href="#contact" className="block text-gray-300 hover:text-orange-400">
                 Контакты
               </a>
               <div className="pt-3 border-t border-gray-700">
                 <a href="#get-started" className="block">
-                  <AnimatedButton className="w-full bg-white text-black hover:bg-gray-100">Начать</AnimatedButton>
+                  <AnimatedButton className="w-full bg-white text-black hover:bg-gray-100">Стать спонсором</AnimatedButton>
                 </a>
               </div>
             </div>
